@@ -13,13 +13,13 @@ class Nodo:
 def huffman_coding(string):
 
     freq = {}
-    for char in string:     #O(n)
+    for char in string:
         if char not in freq:
             freq[char] = 1
         else:
             freq[char] += 1
 
-    freq_sort = [Nodo((item[1], item[0])) for item in freq.items()]   #O(n)
+    freq_sort = [Nodo((item[1], item[0])) for item in freq.items()] 
     heapify(freq_sort)
 
     while len(freq_sort) > 1:
@@ -78,7 +78,7 @@ def decodificar(codigo, raiz):
     return resultado
 
 
-string = "HOLA COMOSTAS"
+string = "BCAADDDCCACACAC"
 print("string original:",string)
 arbol = huffman_coding(string)
 tabla = DFS(arbol)
@@ -87,6 +87,3 @@ print("codigo caracter:", tabla)
 print("string codificado:", codigo)
 str_decode = decodificar(codigo, arbol)
 print("decodificado:", str_decode)
-
-
-#BCAADDDCCACACAC
